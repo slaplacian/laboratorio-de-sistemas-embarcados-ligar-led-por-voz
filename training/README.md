@@ -63,7 +63,7 @@ O modelo é treinado utilizando o [Google Speech Commands Dataset v0.02](https:/
    - O treinamento é realizado utilizando o TensorFlow ou outra biblioteca de aprendizado de máquina.
    - Após o treinamento, o modelo é convertido para um formato compatível com o sistema embarcado, como o TensorFlow Lite.
 
-## 📁 Estrutura dos Arquivos
+## Estrutura dos Arquivos
 
 - `main.py`: Script principal para treinamento do modelo.
 - `conversor.py`: Script para converter o modelo treinado para TensorFlow Lite (`.tflite`).

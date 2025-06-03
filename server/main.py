@@ -27,8 +27,6 @@ try:
         with conn:
             print("Conectado por", addr)
 
-            state = True
-            
             while True:
 
                 data = recv_all(conn, BUFFER_SIZE)
@@ -44,13 +42,6 @@ try:
                     comando = result.get("text", "").lower()
                     print("Reconhecido:", comando)
 
-                    
-                    state = not state
-                    if state:
-                        conn.sendall(b'ON\n')
-                    else:
-                        conn.sendall(b'OFF\n')
-                        
 
                     if "on" in comando:
                         conn.sendall(b'ON\n')
