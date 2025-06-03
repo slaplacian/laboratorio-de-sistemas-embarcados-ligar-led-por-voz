@@ -5,11 +5,11 @@
 #define I2S_WS  25
 #define I2S_SD  33
 #define I2S_SCK 26
-#define LED_PIN 2
+#define LED_PIN 5
 
-const char* ssid = "lphone";
-const char* password = "awd34--@@red33";
-const char* server_ip = "172.20.10.4";
+const char* ssid = "SSID";
+const char* password = "PASSOWRD";
+const char* server_ip = "IP";
 const uint16_t server_port = 5000;
 
 WiFiClient client;
@@ -78,10 +78,9 @@ void loop() {
 
   int num_samples = bytesRead / sizeof(int32_t);
   for (int i = 0; i < num_samples && i < SAMPLE_BUFFER_SIZE; i++) {
-    samples[i] = (int16_t)(i2s_data[i] >> 12); // Redução mais suave
+    samples[i] = (int16_t)(i2s_data[i] >> 12);
   }
 
-  // Envia o buffer inteiro (32.000 bytes) para o servidor
   client.write((uint8_t*)samples, num_samples * sizeof(int16_t));
 
   if (client.connected() && client.available()) {
@@ -99,6 +98,5 @@ void loop() {
     }
   }
 
-  // Aguarda 1 segundo antes de nova captura
   delay(100);
 }
